@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "7350ac62-652e-4488-91e8-4e31e01e0a1e",
+    "_postman_id": "76595a64-a109-444e-afb7-74b75e031cf9",
     "name": "Metasaurus",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -2207,6 +2207,85 @@
                         }
                       },
                       "response": []
+                    },
+                    {
+                      "name": "Schools grouped by school type-NoLimit",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "773ae14a-762d-45b2-a008-b4fc63d100ac",
+                            "exec": [
+                              "pm.test(\"Status code is 200\", function () {",
+                              "    pm.response.to.have.status(200);",
+                              "});",
+                              "",
+                              "pm.test (\"School counts returned based on the limit\", function () {",
+                              "    const responseObject = pm.response.json();",
+                              "    var schools = responseObject.entities.schools;",
+                              "    var edLevelArray = schools.map(x => x.educationLevels);",
+                              "    const Primary = (edLevelArray.join(\"\").match(/P/g)).length;",
+                              "    const Middle = (edLevelArray.join(\"\").match(/M/g)).length;",
+                              "    const High = (edLevelArray.join(\"\").match(/H/g)).length;",
+                              "    pm.expect(Primary).to.be.eql(24);",
+                              "    pm.expect(Middle).to.be.eql(24);",
+                              "    pm.expect(High).to.be.eql(24);",
+                              "});"
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": ""
+                        },
+                        "url": {
+                          "raw": "http://{{services_meta_host}}/v3/schools?lat=36.080300&lng=-80.174500&rad=30&application=ag&disableCache={{disableCache}}&limit=2&groupBy=schoolType",
+                          "protocol": "http",
+                          "host": [
+                            "{{services_meta_host}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schools"
+                          ],
+                          "query": [
+                            {
+                              "key": "lat",
+                              "value": "36.080300"
+                            },
+                            {
+                              "key": "lng",
+                              "value": "-80.174500"
+                            },
+                            {
+                              "key": "rad",
+                              "value": "30"
+                            },
+                            {
+                              "key": "application",
+                              "value": "ag"
+                            },
+                            {
+                              "key": "disableCache",
+                              "value": "{{disableCache}}"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "2"
+                            },
+                            {
+                              "key": "groupBy",
+                              "value": "schoolType"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
                     }
                   ],
                   "_postman_isSubFolder": true
@@ -2673,6 +2752,81 @@
                             {
                               "key": "limit",
                               "value": "2"
+                            },
+                            {
+                              "key": "groupBy",
+                              "value": "schoolType"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Schools grouped by school type-NoLimit",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "b6c376e2-9211-48ef-b4d5-d3db4bb20239",
+                            "exec": [
+                              "pm.test(\"Status code is 200\", function () {",
+                              "    pm.response.to.have.status(200);",
+                              "});",
+                              "",
+                              "pm.test (\"School counts returned based on the limit\", function () {",
+                              "    const responseObject = pm.response.json();",
+                              "    var schools = responseObject.entities.schools;",
+                              "    var edLevelArray = schools.map(x => x.educationLevels);",
+                              "    const Primary = (edLevelArray.join(\"\").match(/P/g)).length;",
+                              "    const Middle = (edLevelArray.join(\"\").match(/M/g)).length;",
+                              "    const High = (edLevelArray.join(\"\").match(/H/g)).length;",
+                              "    pm.expect(Primary).to.be.eql(24);",
+                              "    pm.expect(Middle).to.be.eql(24);",
+                              "    pm.expect(High).to.be.eql(24);",
+                              "});"
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": ""
+                        },
+                        "url": {
+                          "raw": "http://{{services_meta_host}}/v3/schools?lat=36.080300&lng=-80.174500&rad=30&application=rent&disableCache={{disableCache}}&groupBy=schoolType",
+                          "protocol": "http",
+                          "host": [
+                            "{{services_meta_host}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schools"
+                          ],
+                          "query": [
+                            {
+                              "key": "lat",
+                              "value": "36.080300"
+                            },
+                            {
+                              "key": "lng",
+                              "value": "-80.174500"
+                            },
+                            {
+                              "key": "rad",
+                              "value": "30"
+                            },
+                            {
+                              "key": "application",
+                              "value": "rent"
+                            },
+                            {
+                              "key": "disableCache",
+                              "value": "{{disableCache}}"
                             },
                             {
                               "key": "groupBy",
@@ -3181,6 +3335,81 @@
                             {
                               "key": "limit",
                               "value": "2"
+                            },
+                            {
+                              "key": "groupBy",
+                              "value": "schoolType"
+                            }
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Schools grouped by school type-NoLimit",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "id": "61030c81-5b18-48f9-a086-bbce3d4920b8",
+                            "exec": [
+                              "pm.test(\"Status code is 200\", function () {",
+                              "    pm.response.to.have.status(200);",
+                              "});",
+                              "",
+                              "pm.test (\"School counts returned based on the limit\", function () {",
+                              "    const responseObject = pm.response.json();",
+                              "    var schools = responseObject.entities.schools;",
+                              "    var edLevelArray = schools.map(x => x.educationLevels);",
+                              "    const Primary = (edLevelArray.join(\"\").match(/P/g)).length;",
+                              "    const Middle = (edLevelArray.join(\"\").match(/M/g)).length;",
+                              "    const High = (edLevelArray.join(\"\").match(/H/g)).length;",
+                              "    pm.expect(Primary).to.be.eql(24);",
+                              "    pm.expect(Middle).to.be.eql(24);",
+                              "    pm.expect(High).to.be.eql(24);",
+                              "});"
+                            ],
+                            "type": "text/javascript"
+                          }
+                        }
+                      ],
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": ""
+                        },
+                        "url": {
+                          "raw": "http://{{services_meta_host}}/v3/schools?lat=36.080300&lng=-80.174500&rad=30&application=rentals&disableCache={{disableCache}}&groupBy=schoolType",
+                          "protocol": "http",
+                          "host": [
+                            "{{services_meta_host}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schools"
+                          ],
+                          "query": [
+                            {
+                              "key": "lat",
+                              "value": "36.080300"
+                            },
+                            {
+                              "key": "lng",
+                              "value": "-80.174500"
+                            },
+                            {
+                              "key": "rad",
+                              "value": "30"
+                            },
+                            {
+                              "key": "application",
+                              "value": "rentals"
+                            },
+                            {
+                              "key": "disableCache",
+                              "value": "{{disableCache}}"
                             },
                             {
                               "key": "groupBy",
