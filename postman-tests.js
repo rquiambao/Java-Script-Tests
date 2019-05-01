@@ -24,3 +24,27 @@ pm.test('Data is sorted Ascending', () => {
    const expectedSortedOrder = _.orderBy(responseObject.data, ['displayName'], ['asc']);
    pm.expect(responseObject.data).to.eql(expectedSortedOrder);
 });
+
+//4. Generate authentication/authorization using hmac512 and base64 encoding
+//To get and format date
+const moment = require('moment');
+
+//Provide API users SecretKey
+const secretkey = pm.environment.get("secretkey");
+
+//Construct cononical_string
+var method = request.method;
+const apiCall = '/listings';
+var requestBody = CryptoJS.MD5('');
+var date = moment().format("MMDDYYYY");
+var requestString = method.concat('',apiCall,requestBody,date);
+
+//Generate Signature
+var hmacHexString = CryptoJS.HmacSHA512(requestString, secretkey);
+var buff = new Buffer(hmacHexString.toString());
+var signatureKey = buff.toString('base64');
+console.log('hmac = '+ hmacHexString);
+console.log('signatureKey = '+ signatureKey);
+
+//Set signatureKey in Params
+pm.environment.set("signatureKey", signatureKey);
