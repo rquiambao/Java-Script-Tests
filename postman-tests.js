@@ -63,3 +63,50 @@ pm.test("Address and contact details present", function () {
     pm.expect(arrayResp.hasOwnProperty('product-id')).to.be.true;
     pm.expect(arrayResp.hasOwnProperty('description')).to.be.true;
     pm.expect(arrayResp.hasOwnProperty('start-date')).to.be.true;
+
+//7. If JSON Object response is random, assign object to a variable.
+var jsonResponse = pm.response.json();
+dateSlot = pm.globals.get("availDate");
+var availDate2 = jsonResponse[dateSlot];
+var timeslot = availDate2[0];
+pm.globals.set("timeslot", timeslot);
+
+//8. Access nested json object key/values
+pm.test("Required Fields are missing", function () {
+    var jsonData = pm.response.json()
+    var errorMessage = jsonData.errors;
+    pm.expect(errorMessage.length).to.be.gt(0);
+
+    var errorReason = errorMessage[3];
+    pm.expect(errorReason.hasOwnProperty('name')).to.be.true;
+    pm.expect(errorReason.hasOwnProperty('reason')).to.be.true;
+
+    var message = errorReason.reason
+    pm.expect(message).to.be.eql("can't be blank")
+});
+
+e.g.
+{
+    "errors": [
+        {
+            "name": "firstName",
+            "reason": "can't be blank"
+        },
+        {
+            "name": "lastName",
+            "reason": "can't be blank"
+        },
+        {
+            "name": "moveInDate",
+            "reason": "can't be blank"
+        },
+        {
+            "name": "preferredMethod",
+            "reason": "can't be blank"
+        },
+        {
+            "name": "timeslot",
+            "reason": "is invalid"
+        }
+    ]
+}
