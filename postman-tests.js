@@ -85,7 +85,7 @@ pm.test("Required Fields are missing", function () {
     pm.expect(message).to.be.eql("can't be blank")
 });
 
-e.g.
+/* e.g. Response
 {
     "errors": [
         {
@@ -96,17 +96,61 @@ e.g.
             "name": "lastName",
             "reason": "can't be blank"
         },
-        {
-            "name": "moveInDate",
-            "reason": "can't be blank"
-        },
-        {
-            "name": "preferredMethod",
-            "reason": "can't be blank"
-        },
-        {
-            "name": "timeslot",
-            "reason": "is invalid"
-        }
+        ...
     ]
-}
+}*/
+
+//10. Check Value of Object
+//(dynamic value)
+var jsonData = pm.response.json();
+var listingData = jsonData.listingsById;
+var listings = Object.values(listingData);
+
+pm.test("Sort order is sortordersem", function () {
+    var selectlisting = Object.values(listings[0]);
+    var sortvalues = Object.values(selectlisting[3][4]);
+    pm.expect(sortvalues[0]).to.eql('sortorderbsem');
+});
+//(hardcoded value)
+pm.test("Sort order is sortorderbsem", function () {
+    var listings = _.get(jsonData.listingsById, '2016237.sortValues[4][0]');
+    pm.expect(listings).to.eql('sortorderbsem');
+});
+/* e.g. Response
+
+{
+    "listingsById": {
+        "2016237": {
+            "id": "2016237",
+            "name": "Marquis Trace",
+            "links": {
+                "self": "apartments/Georgia/Roswell/Marquis-Trace/2016237/",
+                "city": "apartments/Georgia/Roswell"
+            },
+            "sortValues": [
+                [
+                    "isapartment",
+                    1
+                ],
+                [
+                    "n_islakecharlesplantation",
+                    "-Infinity"
+                ],
+                [
+                    "searchonly",
+                    0
+                ],
+                [
+                    "diamondmax",
+                    -9223372036854775808
+                ],
+                [
+                    "sortorderbsem",
+                    "Infinity"
+                ],
+                [
+                    "kilometers-to-geocode",
+                    6.2190816912700555
+                ]
+            ]
+        }, */
