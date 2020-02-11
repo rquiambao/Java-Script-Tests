@@ -148,10 +148,8 @@
         }, */
 
 10.
-/*[
+[
     {
-      "contractCode": "FLI-625781",
-      "clientId": "001E000000nya3BIAQ",
       "lineItemId": "REPSOCCR3",
       "productId": 59,
       "productDescription": "SocialMedia Manager",
@@ -162,4 +160,4 @@
       "assetId": 100036308,
       "isAutofulfilled": true
     }
-*/
+]
