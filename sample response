@@ -1,0 +1,165 @@
+1&2.
+{
+    "entities": {
+        "schools": [
+            {
+                "address": "125 Nicholson Road",
+                "averageRating": "3",
+                "averageRatingCount": "4",
+                "city": "Winston Salem",
+                "districtIds": [
+                    "3701500"
+                ],
+                "educationLevels": [
+                    "P"
+                ],
+                "grade": "PK-5",
+                "greatSchoolsLink": "https://www.greatschools.org/north-carolina/winston-salem/683-Hall-Woodward-Elementary/",
+                "id": "370150000607",
+                "milesToGeoCode": 0.0,
+                "name": "Hall-Woodward Elementary School",
+                "overallRating": 2,
+                "phone": "(336) 703-4238",
+                "rectype": "MSC",
+                "stateAbbrev": "NC",
+                "subtypes": [],
+                "type": "public",
+                "zip": "27107",
+                "lat": 36.080284,
+                "lng": -80.174486
+            },
+            {
+                "address": "4250 Johnny Knoll Lane",
+                "averageRating": "3",
+                "averageRatingCount": "11",
+                "city": "Winston-Salem",
+                "districtIds": [
+                    "3701500"
+                ],
+                "educationLevels": [
+                    "P"
+                ],
+                "grade": "K-3",
+                "greatSchoolsLink": "https://www.greatschools.org/north-carolina/winston_salem/8170-Smith-Farm-Elementary-School/",
+                "id": "370150003274",
+                "milesToGeoCode": 0.0,
+                "name": "Smith Farm Elementary School",
+                "overallRating": 3,
+                "phone": "(336) 703-4188",
+                "rectype": "MSC",
+                "stateAbbrev": "NC",
+                "subtypes": [],
+                "type": "public",
+                "zip": "27107",
+                "lat": 36.08177,
+                "lng": -80.140908
+            }
+        ]
+    }
+}
+
+3.
+{
+    "data": [
+        {
+            "url": "/apartments/New-Jersey/Yardville-Groveville/",
+            "seoPriorityScore": 1.723063e-4,
+            "displayName": "Yardville-Groveville"
+        },
+        {
+            "url": "/apartments/New-Jersey/Zarephath/",
+            "seoPriorityScore": 2.52222e-5,
+            "displayName": "Zarephath"
+        }
+    ]
+}
+
+5.
+{
+    ....
+    "listing-id": "28890",
+    "property-id": "42241",
+    "mgtco-id": "14475",
+    "customer-reputation-product": "REPSOCCR3",
+    ....
+}
+
+
+7.
+{
+    "2020-02-13": [
+        "2020-02-13T14:30:00-08:00",
+        "2020-02-13T14:00:00-08:00",
+        "2020-02-13T13:30:00-08:00",
+    ]
+}
+
+8.
+{
+    "errors": [
+        {
+            "name": "firstName",
+            "reason": "can't be blank"
+        },
+        {
+            "name": "lastName",
+            "reason": "can't be blank"
+        },
+        ...
+    ]
+}*/
+
+9.
+{
+    "listingsById": {
+        "2016237": {
+            "id": "2016237",
+            "name": "Marquis Trace",
+            "links": {
+                "self": "apartments/Georgia/Roswell/Marquis-Trace/2016237/",
+                "city": "apartments/Georgia/Roswell"
+            },
+            "sortValues": [
+                [
+                    "isapartment",
+                    1
+                ],
+                [
+                    "n_islakecharlesplantation",
+                    "-Infinity"
+                ],
+                [
+                    "searchonly",
+                    0
+                ],
+                [
+                    "diamondmax",
+                    -9223372036854775808
+                ],
+                [
+                    "sortorderbsem",
+                    "Infinity"
+                ],
+                [
+                    "kilometers-to-geocode",
+                    6.2190816912700555
+                ]
+            ]
+        }, */
+
+10.
+/*[
+    {
+      "contractCode": "FLI-625781",
+      "clientId": "001E000000nya3BIAQ",
+      "lineItemId": "REPSOCCR3",
+      "productId": 59,
+      "productDescription": "SocialMedia Manager",
+      "startDate": "2017-09-01T00:00:00",
+      "endDate": "2100-12-31T00:00:00",
+      "monthToMonth": true,
+      "assetTypeId": 1,
+      "assetId": 100036308,
+      "isAutofulfilled": true
+    }
+*/
