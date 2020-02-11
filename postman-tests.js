@@ -154,3 +154,24 @@ pm.test("Sort order is sortorderbsem", function () {
                 ]
             ]
         }, */
+
+//11. Check property value from response array
+pm.test("REPSOCCR3 contract", function() {
+    const contract = jsonData.find(  ({lineItemId})  => lineItemId === "REPSOCCR3" );
+    pm.expect(contract.lineItemId).to.equal("REPSOCCR3");
+});
+/*[
+    {
+      "contractCode": "FLI-625781",
+      "clientId": "001E000000nya3BIAQ",
+      "lineItemId": "REPSOCCR3",
+      "productId": 59,
+      "productDescription": "SocialMedia Manager",
+      "startDate": "2017-09-01T00:00:00",
+      "endDate": "2100-12-31T00:00:00",
+      "monthToMonth": true,
+      "assetTypeId": 1,
+      "assetId": 100036308,
+      "isAutofulfilled": true
+    }
+*/
