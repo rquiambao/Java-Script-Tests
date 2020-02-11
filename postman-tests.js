@@ -7,7 +7,7 @@ var responseObject = pm.response.json();
     console.log(count);
 
 //2. Count Occurrences of string values
-var responseObject = pm.response.json();
+    var responseObject = pm.response.json();
     var schools = responseObject.entities.schools;
     var edLevelArray = schools.map(x => x.educationLevels);
     var counts = {};
@@ -16,6 +16,7 @@ var responseObject = pm.response.json();
             counts[edLevelArray[i]] =0;
         ++counts[edLevelArray[i]];
     console.log(counts);
+    }
 
 //3. Sorting
 var _ = require('lodash');
@@ -85,22 +86,7 @@ pm.test("Required Fields are missing", function () {
     pm.expect(message).to.be.eql("can't be blank")
 });
 
-/* e.g. Response
-{
-    "errors": [
-        {
-            "name": "firstName",
-            "reason": "can't be blank"
-        },
-        {
-            "name": "lastName",
-            "reason": "can't be blank"
-        },
-        ...
-    ]
-}*/
-
-//10. Check Value of Object
+//9. Check Value of Object
 //(dynamic value)
 var jsonData = pm.response.json();
 var listingData = jsonData.listingsById;
@@ -116,62 +102,9 @@ pm.test("Sort order is sortorderbsem", function () {
     var listings = _.get(jsonData.listingsById, '2016237.sortValues[4][0]');
     pm.expect(listings).to.eql('sortorderbsem');
 });
-/* e.g. Response
 
-{
-    "listingsById": {
-        "2016237": {
-            "id": "2016237",
-            "name": "Marquis Trace",
-            "links": {
-                "self": "apartments/Georgia/Roswell/Marquis-Trace/2016237/",
-                "city": "apartments/Georgia/Roswell"
-            },
-            "sortValues": [
-                [
-                    "isapartment",
-                    1
-                ],
-                [
-                    "n_islakecharlesplantation",
-                    "-Infinity"
-                ],
-                [
-                    "searchonly",
-                    0
-                ],
-                [
-                    "diamondmax",
-                    -9223372036854775808
-                ],
-                [
-                    "sortorderbsem",
-                    "Infinity"
-                ],
-                [
-                    "kilometers-to-geocode",
-                    6.2190816912700555
-                ]
-            ]
-        }, */
-
-//11. Check property value from response array
+//10. Check property value exists for each of the array response
 pm.test("REPSOCCR3 contract", function() {
     const contract = jsonData.find(  ({lineItemId})  => lineItemId === "REPSOCCR3" );
     pm.expect(contract.lineItemId).to.equal("REPSOCCR3");
 });
-/*[
-    {
-      "contractCode": "FLI-625781",
-      "clientId": "001E000000nya3BIAQ",
-      "lineItemId": "REPSOCCR3",
-      "productId": 59,
-      "productDescription": "SocialMedia Manager",
-      "startDate": "2017-09-01T00:00:00",
-      "endDate": "2100-12-31T00:00:00",
-      "monthToMonth": true,
-      "assetTypeId": 1,
-      "assetId": 100036308,
-      "isAutofulfilled": true
-    }
-*/
